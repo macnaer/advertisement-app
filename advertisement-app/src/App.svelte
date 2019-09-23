@@ -1,6 +1,6 @@
 <script>
   import Header from "./UI/Header.svelte";
-  import AdvItem from "./Adv/AdvItem.svelte";
+  import AdvList from "./Adv/AdvList.svelte";
 
   const advs = [
     {
@@ -30,18 +30,54 @@
   main {
     margin-top: 5rem;
   }
+
+  form {
+    width: 30rem;
+    max-width: 90%;
+    margin: auto;
+  }
 </style>
 
 <Header />
 <main>
-  {#each advs as adv}
-    <AdvItem
-      title={adv.title}
-      subtitle={adv.subtitle}
-      description={adv.description}
-      imageUrl={adv.imageUrl}
-      email={adv.contactEmail}
-      address={adv.address} />
-  {/each}
-
+  <!-- <form on:submit|preventDefault={addMeetup}>
+    <TextInput
+      id="title"
+      label="Title"
+      type="text"
+      value={title}
+      on:input={event => (title = event.target.value)} />
+    <TextInput
+      id="subtitle"
+      label="Subtitle"
+      type="text"
+      value={subtitle}
+      on:input={event => (subtitle = event.target.value)} />
+    <TextInput
+      id="address"
+      label="Address"
+      type="text"
+      value={address}
+      on:input={event => (address = event.target.value)} />
+    <TextInput
+      id="imageUrl"
+      label="Image URL"
+      type="text"
+      value={imageUrl}
+      on:input={event => (imageUrl = event.target.value)} />
+    <TextInput
+      id="email"
+      label="E-Mail"
+      type="email"
+      value={email}
+      on:input={event => (email = event.target.value)} />
+    <TextInput
+      id="description"
+      label="Description"
+      controlType="textarea"
+      value={description}
+      on:input={event => (description = event.target.value)} />
+    <Button type="submit" caption="Save" />
+  </form> -->
+  <AdvList {advs} />
 </main>
